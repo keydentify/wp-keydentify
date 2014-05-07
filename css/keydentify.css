@@ -1,4 +1,7 @@
-#login_error, #nav, #displaykeydentify {
+#login {
+	width: 360px;
+}
+#login_error, #nav { /*, #knewaccount*/
 	display: none;
 }
 .description {

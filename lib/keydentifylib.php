@@ -15,6 +15,7 @@
  */
 require_once('sha256.inc.php');
 define('KEYDENTIFY_SERVER', 'https://app.keydentify.com');
+//define('KEYDENTIFY_SERVER', 'http://192.168.1.10:8080');
 
 class KeydentifyLib {
 

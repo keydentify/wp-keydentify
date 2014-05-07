@@ -8,8 +8,8 @@ Version: 1.0
 Author URI: http://www.keydentify.com/
 */
 
-$keydentifyVersion = '0.4';
-load_plugin_textdomain("keydentify", 'wp-content/plugins/keydentify/localization');
+$keydentifyVersion = '1.0';
+load_plugin_textdomain("keydentify", 'wp-content/plugins/wp-keydentify/localization');
 $keydentify_html_second_step = '';
 
 	/**
@@ -65,7 +65,7 @@ $keydentify_html_second_step = '';
 		
 		# Is user using Keydentify ?
 		$useKeydentify = get_the_author_meta( 'keydentify', $user->id );
-
+		
 		if (!is_a($user, 'WP_User')) { //true || 
 			# no account for this credentials, stop here ...
 			return $user;
@@ -349,7 +349,7 @@ $keydentify_html_second_step = '';
 				$submit = 'this.form.submit();';
 				if ($authtype == "1") { 
 					$submit = 'keyd.sendIt();'; ?>
-					<input type="button" value="<?php echo __("Yes, secure my account", "keydentify"); ?>" onclick="document.getElementById('presentkeydentify').style.display='none';document.getElementById('displaykeydentify').style.display='block';" class="button button-primary button-large" id="wp-submit" name="wp-submit">
+					<input type="button" value="<?php echo __("Yes, secure my account", "keydentify"); ?>" onclick="document.getElementById('presentkeydentify').style.display='none';document.getElementById('knewaccount').style.display='block';" class="button button-primary button-large" id="wp-submit" name="wp-submit">
 				<?php } else { ?>
 					<input type="button" value="<?php echo __("Yes, secure my account", "keydentify"); ?>" onclick="<?php echo $submit; ?>" class="button button-primary button-large" id="wp-submit" name="wp-submit">
 				<?php } ?>
@@ -411,7 +411,7 @@ $keydentify_html_second_step = '';
 	
 	function keydentify_login_head_second_step() {
 		global $keydentifyVersion;
-		$keydentify_url = WP_PLUGIN_URL.'/keydentify';
+		$keydentify_url = WP_PLUGIN_URL.'/wp-keydentify';
 		$keydentify_local_style_path = $keydentify_url.'/css';
 		$keydentify_local_script_path = $keydentify_url.'/js';
 		
@@ -425,3 +425,4 @@ $keydentify_html_second_step = '';
 		
 	}
 ?>
+

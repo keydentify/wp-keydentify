@@ -51,6 +51,7 @@ var keyd = {
 		openConn: function(token) {
 		    if (!this.eb) {
 		    	this.eb = new vertx.EventBus("https://app.keydentify.com/eventbus");
+		    	//this.eb = new vertx.EventBus("http://192.168.1.10:8080/eventbus");
 		    	
 		        var me = this;
 		        

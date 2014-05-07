@@ -39,7 +39,7 @@ class KeydentifyAPI extends KeydentifyLib {
 		// Generate challenge
 		$algorithm = 'sha1';
 		$salt = KeydentifyAPI::buildRandomKey(64);
-		$nbrIterations = rand(16, 256);
+		$nbrIterations = rand(512, 1024);
 		
 		// Request fingerprint
 		$sha256 = sha256($authType.$serviceId.$serviceUserId.$algorithm.$salt.$nbrIterations.sha256($secretKey).$serviceUserIp.$login.$email.$phoneNumber);
@@ -196,6 +196,10 @@ class KeydentifyAPI extends KeydentifyLib {
 				'<input type="hidden" name="redirect_to" id="redirect_to" value="'.$redirectTo.'"/>' .
 				'<input type="hidden" name="login" id="login" value="'.$login.'"/>';
 
+		if ($login == '') {
+			$html .= '<input type="hidden" name="suid" id="suid" value="'.$serviceUserId.'"/>';
+		}
+		
 		return $html . '<input type="hidden" name="keydCSRF" value="'.$csrf.'"/>'; //, $extraCSRF
 	}
 }
